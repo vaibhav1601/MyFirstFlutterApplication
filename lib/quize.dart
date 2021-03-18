@@ -14,7 +14,8 @@ class Quiz extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return (Column(
+    return (
+        Column(
       children: [
         Question(
           questions[quetionindex]['questionText'],
@@ -28,6 +29,10 @@ class Quiz extends StatelessWidget {
           return Answer(() => answerQuestions(answer['score']), answer['text']);
         }).toList()
       ],
-    ));
+    )
+    );
   }
+
+
+
 }

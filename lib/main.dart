@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import './quize.dart';
 import 'result.dart';
 
+
 /*void main() {
   runApp(MyApp());
 }*/
@@ -58,6 +59,8 @@ class _MyAppState extends State<MyApp> {
     }
   ];
 
+  final menu = ['Ask your question', 'History', 'contact us'];
+
   answerQuestions(int mTotalScore) {
     // print("choose one answer");
 
@@ -72,7 +75,6 @@ class _MyAppState extends State<MyApp> {
   @override
   Widget build(BuildContext context) {
     // TODO: implement build
-
     return MaterialApp(
       home: Scaffold(
           appBar: AppBar(
@@ -80,11 +82,57 @@ class _MyAppState extends State<MyApp> {
           ),
           body: _questionIndex < questions.length
               ? Quiz(
-                  questions: questions,
-                  answerQuestions: answerQuestions,
-                  quetionindex: _questionIndex,
-                )
-              : Result(_mTotalScore,restartQuiz)),
+            questions: questions,
+            answerQuestions: answerQuestions,
+            quetionindex: _questionIndex,
+          )
+              : Result(_mTotalScore, restartQuiz),
+          drawer: Drawer(
+            // Add a ListView to the drawer. This ensures the user can scroll
+            // through the options in the drawer if there isn't enough vertical
+            // space to fit everything.
+            child: ListView(
+              // Important: Remove any padding from the ListView.
+              padding: EdgeInsets.zero,
+              children: <Widget>[
+                DrawerHeader(
+                  child: Text('Mine'),
+                  decoration: BoxDecoration(
+                    color: Colors.blue,
+                  ),
+                ),
+                ListTile(
+                  title: Text(menu[0]),
+                  onTap: () {
+                    // Update the state of the app.
+                    // ...
+                  },
+                ),
+                ListTile(
+                  title: Text(
+                    menu[1],
+                  ),
+                  onTap: () {
+                    // Update the state of the app.
+                    // ...
+                  },
+                ),
+                ListTile(
+                  title: Text(
+                    menu[2],
+                  ),
+                  onTap: () {
+                    // Update the state of the app.
+                    // ...
+                  },
+                ),
+              ],
+            ),
+          ),
+
+      ),
     );
   }
 }
+
+

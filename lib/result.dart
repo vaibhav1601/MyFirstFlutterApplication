@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import './main.dart';
+import 'snackbar.dart';
 
 class Result extends StatelessWidget {
   final int mTotalScore;
@@ -33,11 +34,13 @@ class Result extends StatelessWidget {
                 fontSize: 36, fontWeight: FontWeight.bold, color: Colors.red),
             textAlign: TextAlign.center,
           ),
-          TextButton(
-              onPressed: resultHandler,
-              style: ButtonStyle(
-                  foregroundColor: MaterialStateProperty.all(Colors.blue)),
-              child: Text('Restart Quiz'))
+        /*  TextButton(
+            onPressed: resultHandler,
+            style: ButtonStyle(
+                foregroundColor: MaterialStateProperty.all(Colors.blue)),
+            child: Text('Restart Quiz'),
+          ),*/
+          SnackBarPage(resultHandler),
         ],
       ),
     );
